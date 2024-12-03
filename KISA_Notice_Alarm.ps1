@@ -15,7 +15,7 @@ $flag=$false
 $count=0
 
 echo "KISA_Notice_Alarm V1.0"
-echo "시작 시간: $(Get-Date).ToString('yyyy-MM-dd hh:mm:ss')"
+echo "시작 시간: $($(Get-Date).ToString('yyyy-MM-dd hh:mm:ss'))"
 echo "================================================================"
 
 while($true){

@@ -14,6 +14,10 @@ $kisa_cur_title=""
 $flag=$false
 $count=0
 
+echo "KISA_Notice_Alarm V1.0"
+echo "시작 시간: $(Get-Date).ToString('yyyy-MM-dd hh:mm:ss')"
+echo "================================================================"
+
 while($true){
     if($(Get-Date).Second -ne 0){
         continue
@@ -43,7 +47,7 @@ while($true){
     }
     
     if($flag){
-        [System.Reflection.Assembly]::LoadWithPartialName('System.Windows.Forms') > $null
-        [System.Windows.Forms.MessageBox]::Show($THIS, "($kisa_cur_id) $kisa_cur_title","KISA 신규 공지 발생") > $null
+        $wshell = New-Object -ComObject Wscript.Shell
+        $wshell.Popup("($kisa_cur_id) $kisa_cur_title",0,"KISA 신규 공지 발생",0x0) > $null
     }
 }

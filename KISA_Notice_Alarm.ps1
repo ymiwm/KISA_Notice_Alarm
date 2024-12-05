@@ -32,17 +32,17 @@ while($true){
         $kisa_cur_title=$kisa_html.AllElements | ?{$_.Class -eq "sbj tal"} | select -index 0 | select -ExpandProperty InnerText
     }
     catch{
-        echo "[-] ($($cur_time.ToString("hh:mm")) HTML 파싱 오류 발생.(Count: $count)($_)"
+        echo "[-] ($($cur_time.ToString("HH:mm")) HTML 파싱 오류 발생.(Count: $count)($_)"
     }
 
     if($kisa_latest_id -ne $kisa_cur_id){
-        echo "[+] ($($cur_time.ToString("hh:mm"))) KISA 신규 공지 발생.(Count: $count)"
+        echo "[+] ($($cur_time.ToString("HH:mm"))) KISA 신규 공지 발생.(Count: $count)"
         echo "`t($kisa_cur_id) $kisa_cur_title"
         $kisa_latest_id=$kisa_cur_id
         $flag=$true
     }
     else{
-        echo "[+] ($($cur_time.ToString("hh:mm"))) KISA 신규 공지 없음.(Count: $count)"
+        echo "[+] ($($cur_time.ToString("HH:mm"))) KISA 신규 공지 없음.(Count: $count)"
         $flag=$false
     }
     
